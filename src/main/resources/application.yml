@@ -1,0 +1,30 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: reggite_take_out
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/reggie?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
+    username: root
+    password: 123456
+  redis:
+    host: localhost
+    port: 6379
+#    password: root@123456
+    database: 0
+  cache:
+    redis:
+      time-to-live: 1800000 #设置缓存数据的过期时间,30分钟
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl  #指定日志输出方式
+    map-underscore-to-camel-case: true  #开启驼峰命名转下划线命名的映射规则
+  global-config:
+    db-config:
+      id-type: ASSIGN_ID  #手动指定主键 ID,设置了z这个意味着你的主键id会自动生成一个雪花算法的ID，不需要再手动设置id，只要提交实体类对象就可以了。
+
+reggie:
+  path: D:\img\
+
